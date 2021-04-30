@@ -27,18 +27,24 @@
 		  "AddEventHandler('${1:example}:Client:OnPlayerLoaded', function()",
 		  "	${2:example} = ${1:example}$0.Functions.GetPlayerData()",
 		  "end)",
-		  "",
-		  "RegisterNetEvent('${1:example}:Client:OnJobUpdate')",
-		  "AddEventHandler('${1:example}:Client:OnJobUpdate', function(job)",
-		  "	${2:example}.job = job",
-		  "end)"
+		  ""
 		],
 		"description": "OnPlayerLoaded"
+	  },
+	  "On Job Update": {
+		"prefix": "JobUpdate",
+		"body": [
+		  "RegisterNetEvent('${1:example}:Client:OnJobUpdate'),",
+		  "AddEventHandler('${1:example}:Client:OnJobUpdate', function(job),",
+		  "${2:example}.job = job,",
+		  "end)"
+		],
+		"description": "On Job Update"
 	  },
 	  "Core Notify": {
 		"prefix": "Notify",
 		"body": [
-		  "${1:example}.Functions.Notify(\"${2:core}$0 \")"
+		  "${1:QBCore}.Functions.Notify(\"${2:core}$0 \")"
 		],
 		"description": "Core Notify"
 	  },
@@ -52,7 +58,7 @@
 		  "",
 		  "end)"
 		],
-		"description": "Trigger Callback"
+		"description": "Trigger Callback from client"
 	  },
 	  "Get Vehicle Properties": {
 		"prefix": "GetVehicleProperties",
@@ -104,6 +110,13 @@
 		  "end,${4:Coords},${5:IsNetworked})"
 		],
 		"description": "Spawn Vehicle"
+	  },
+	  "Get Player Data From client": {
+		"prefix": "GetPlayerData",
+		"body": [
+		  "QBCore.Functions.GetPlayerData()"
+		],
+		"description": "Get Player Data From client"
 	  },
 	  "Get All Vehicles": {
 		"prefix": "GetVehicles",
@@ -217,7 +230,7 @@
 		  "-- Query = String",
 		  "--QBCore.Functions.ExecuteSql(true,${3:Query} ,function(${4:CallBack}) ",
 		  "--",
-		  "--end)	",
+		  "end)	",
 		  ""
 		],
 		"description": "SERVER: Execute SQL String"
