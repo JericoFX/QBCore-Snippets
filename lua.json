@@ -1,381 +1,381 @@
 {
-	//BY JERICOFX
-	"Call Core Client side": {
+	"CLIENT/SERVER:Call Core": {
 		"prefix": "QBCore:GetObject",
 		"body": [
-		  "local QBCore = exports['qb-core']:GetSharedObject()",
+			"local QBCore = exports['qb-core']:GetObjectObject(),"
 		],
-		"description": "Call Core Client side"
-	  },
-	  "OnPlayerLoaded": {
+		"description": "Call Core"
+	},
+	"CLIENT: OnPlayerLoaded": {
 		"prefix": "OnPlayerLoaded",
 		"body": [
-		  "${2:PlayerData} 	= {}",
-		  "RegisterNetEvent('QBCore:Client:OnPlayerLoaded'),",
-		  "AddEventHandler('QBCore:Client:OnPlayerLoaded', function(),",
-		  "	${2:PlayerData} = QBCore.Functions.GetPlayerData(),",
-		  "end)",
-		  ""
+			"local ${2:PlayerData} 	= {},",
+			"RegisterNetEvent('QBCore:Client:OnPlayerLoaded'),",
+			"AddEventHandler('QBCore:Client:OnPlayerLoaded', function(),",
+			"	${2:PlayerData} = QBCore.Functions.GetPlayerData(),",
+			"end)",
+			""
 		],
 		"description": "OnPlayerLoaded"
-	  },
-	  "On Job Update": {
-		"prefix": "JobUpdate",
+	},
+	"CLIENT: OnJobUpdate": {
+		"prefix": "OnJobUpdate",
 		"body": [
-		  "RegisterNetEvent('QBCore:Client:OnJobUpdate'),",
-		  "AddEventHandler('QBCore:Client:OnJobUpdate', function(job),",
-		  "${1:PlayerData}.job = job,",
-		  "end)"
+			"RegisterNetEvent('QBCore:Client:OnJobUpdate'),",
+			"AddEventHandler('QBCore:Client:OnJobUpdate', function(job),",
+			"${1:PlayerData}.job = job,",
+			"end)"
 		],
 		"description": "On Job Update Event"
-	  },
-	  "Core Notify": {
+	},
+	"CLIENT: Core Notify": {
 		"prefix": "Notify",
 		"body": [
-		  "QBCore.Functions.Notify(\"${1:message}$0\")"
+			"QBCore.Functions.Notify(\"${1:message}$0\")"
 		],
 		"description": "Send a Notification from the client"
-	  },
-	 
-	  "Trigger Callback": {
+	},
+
+	"CLIENT: Trigger Callback": {
 		"prefix": "TriggerCallback",
 		"body": [
-		  "QBCore.Functions.TriggerCallback(\"${1:nameCallback}\",function(${2:DataReturning}) ",
-		  "",
-		  "",
-		  "",
-		  "end)"
+			"QBCore.Functions.TriggerCallback(\"${1:nameCallback}\",function(${2:DataReturning}) ",
+			"",
+			"",
+			"",
+			"end)"
 		],
 		"description": "Trigger Callback from client"
-	  },
-	  "Get Vehicle Properties": {
+	},
+	"CLIENT: Get Vehicle Properties": {
 		"prefix": "GetVehicleProperties",
 		"body": [
-		  "QBCore.Functions.GetVehicleProperties(${1:Vehicle})"
+			"QBCore.Functions.GetVehicleProperties(${1:Vehicle})"
 		],
 		"description": "Get Vehicle Properties"
-	  },
-	  "Delete Vehicle": {
+	},
+	"CLIENT: Delete Vehicle": {
 		"prefix": "DeleteVehicle",
 		"body": [
-		  "QBCore.Functions.DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))"
+			"QBCore.Functions.DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))"
 		],
 		"description": "Delete Vehicle"
-	  },
-	  
-	  "Trigger a Server Event": {
+	},
+
+	"SERVER: Trigger a Server Event": {
 		"prefix": "TriggerServerEvent",
 		"body": [
-		  "TriggerServerEvent(\"${1:TriggerName}\",${2:value1},${3:value2})"
+			"TriggerServerEvent(\"${1:TriggerName}\",${2:value1},${3:value2})"
 		],
 		"description": "Trigger a Server Event"
-	  },
-	  "Draw Text on Screen": {
+	},
+	"CLIENT:Draw Text on Screen": {
 		"prefix": "DrawText",
 		"body": [
-		  "QBCore.Functions.DrawText(${2:x},${3:y},${4:width},${5:height},${6:scale},${7:r},${8:g},${9:b},${10:alpha},${11:text})"
+			"QBCore.Functions.DrawText(${2:x},${3:y},${4:width},${5:height},${6:scale},${7:r},${8:g},${9:b},${10:alpha},${11:text})"
 		],
 		"description": "Draw Text on Screen"
-	  },"Draw 3D Text on Screen": {
+	},
+	"CLIENT: Draw 3D Text on Screen": {
 		"prefix": "3DText",
 		"body": [
-		  "QBCore.Functions.DrawText3D(${2:x},${3:y},${4:z},${5:text})"
+			"QBCore.Functions.DrawText3D(${2:x},${3:y},${4:z},${5:text})"
 		],
 		"description": "Draw 3D Text on Screen"
-	  },
-	  "Get Entity Coords": {
+	},
+	"CLIENT: Get Entity Coords": {
 		"prefix": "GetCoords",
 		"body": [
-		  "QBCore.Functions.GetCoords(${1:Entity})"
+			"QBCore.Functions.GetCoords(${1:Entity})"
 		],
 		"description": "Get Entity Coords"
-	  },
-	  "Spawn Vehicle": {
+	},
+	"CLIENT: Spawn Vehicle": {
 		"prefix": "SpawnVehicle",
 		"body": [
-		  "QBCore.Functions.SpawnVehicle(${1:Model},function(${2:Callback})",
-		  "",
-		  "end,${3:Coords},${4:IsNetworked})"
+			"QBCore.Functions.SpawnVehicle(${1:Model},function(${2:Callback})",
+			"",
+			"end,${3:Coords},${4:IsNetworked})"
 		],
 		"description": "Spawn Vehicle"
-	  },
-	  "Get Player Data From client": {
+	},
+	"CLIENT: Get Player Data From client": {
 		"prefix": "GetPlayerData",
 		"body": [
-		  "QBCore.Functions.GetPlayerData()"
+			"QBCore.Functions.GetPlayerData()"
 		],
 		"description": "Get Player Data From client"
-	  },
-	  "Get All Vehicles": {
+	},
+	"CLIENT: Get All Vehicles": {
 		"prefix": "GetVehicles",
 		"body": [
-		  "QBCore.Functions.GetVehicles()",
-		  "--Return a table with All Vehicles"
+			"QBCore.Functions.GetVehicles()",
+			"--Return a table with All Vehicles"
 		],
 		"description": "Get All Vehicles"
-	  },
-	  "Get All Peds": {
+	},
+	"CLIENT: Get All Peds": {
 		"prefix": "Getpeds",
 		"body": [
-		  "QBCore.Functions.GetPeds(${1:IgnoreList})",
-		  "--Ignore List can be empty"
+			"QBCore.Functions.GetPeds(${1:IgnoreList})",
+			"--Ignore List can be empty"
 		],
 		"description": "Get All Peds"
-	  },
-	  "Get All Players": {
+	},
+	"CLIENT: Get All Players": {
 		"prefix": "GetPlayers",
 		"body": [
-		  "QBCore.Functions.GetPlayers()",
-		  "--Return All Players"
+			"QBCore.Functions.GetPlayers()",
+			"--Return All Players"
 		],
 		"description": "Get All Players"
-	  },
-	  "Get Closest Vehicle": {
+	},
+	"CLIENT: Get Closest Vehicle": {
 		"prefix": "GetClosestVehicle",
 		"body": [
-		  "QBCore.Functions.GetClosestVehicle(${1:Coords})",
-		  "--Return the closest Vehicle to the player, Arguments Coords is Optional"
+			"QBCore.Functions.GetClosestVehicle(${1:Coords})",
+			"--Return the closest Vehicle to the player, Arguments Coords is Optional"
 		],
 		"description": "Get Closest Vehicle"
-	  },
-	  "Get Closest Ped": {
+	},
+	"CLIENT: Get Closest Ped": {
 		"prefix": "GetClosestPed",
 		"body": [
-		  "QBCore.Functions.GetClosestPed(${1:Coords},${2:IgnoreList})",
-		  "--Return the closest Ped, Coords and IgnoreList are Optionals"
+			"QBCore.Functions.GetClosestPed(${1:Coords},${2:IgnoreList})",
+			"--Return the closest Ped, Coords and IgnoreList are Optionals"
 		],
 		"description": "Get Closest Ped"
-	  },
-	  "Get Closest Player": {
+	},
+	"CLIENT: Get Closest Player": {
 		"prefix": "GetClosestPlayer",
 		"body": [
-		  "QBCore.Functions.GetClosestPlayer(${1:Coords})",
-		  "--Return the closest player, Coords are Optional"
+			"QBCore.Functions.GetClosestPlayer(${1:Coords})",
+			"--Return the closest player, Coords are Optional"
 		],
 		"description": "Get Closest Player"
-	  },
-	  "Get Closest Player From Coords": {
+	},
+	"CLIENT: Get Closest Player From Coords": {
 		"prefix": "GetClosestPlayer",
 		"body": [
-		  "QBCore.Functions.GetPlayersFromCoords()${1:Coords,${2:Distance}}",
-		  "--Return an array of players in X Coords, coords and Distance are Optionals"
+			"QBCore.Functions.GetPlayersFromCoords()${1:Coords,${2:Distance}}",
+			"--Return an array of players in X Coords, coords and Distance are Optionals"
 		],
 		"description": "Get Closest Player From Coords"
-	  },
-	  "Check if Player Has Item": {
+	},
+	"CLIENT: Check if Player Has Item": {
 		"prefix": "HasItem",
 		"body": [
-		  "QBCore.Functions.HasItem(${1:Source},${2:Callback},${3:Item})",
-		  "--Return true or False if player has item"
+			"QBCore.Functions.HasItem(${1:Source},${2:Callback},${3:Item})",
+			"--Return true or False if player has item"
 		],
 		"description": "Check if Player Has Item"
-	  },
-	  "Progress Bar": {
+	},
+	"CLIENT:Progress Bar": {
 		"prefix": "ProgressBar",
 		"body": [
-		  "QBCore.Functions.Progressbar(${1:Name}, ${2:Label}, ${3:Duration}, ${4:useWhileDead}, ${5:canCancel}, {",
-		  "                    disableMovement = true, --",
-		  "                    disableCarMovement = true,",
-		  "                    disableMouse = false,",
-		  "                    disableCombat = true,",
-		  "                }, {}, {}, {}, function() ",
-		  "                   -- Function Executed when the bar finish",
-		  "                end, function() -- Cancel",
-		  "                    -- Function Executed when the player Cancel",
-		  "                end)"
+			"QBCore.Functions.Progressbar(${1:Name}, ${2:Label}, ${3:Duration}, ${4:useWhileDead}, ${5:canCancel}, {",
+			"                    disableMovement = true, --",
+			"                    disableCarMovement = true,",
+			"                    disableMouse = false,",
+			"                    disableCombat = true,",
+			"                }, {}, {}, {}, function() ",
+			"                   -- Function Executed when the bar finish",
+			"                end, function() -- Cancel",
+			"                    -- Function Executed when the player Cancel",
+			"                end)"
 		],
 		"description": "Progress Bar"
-	  },
-	  "Set Vehicle Properties": {
+	},
+	"CLIENT: Set Vehicle Properties": {
 		"prefix": "SetVehicleProperties",
 		"body": [
-		  "QBCore.Functions.SetVehicleProperties(${1:Vehicle},${2:Props})"
+			"QBCore.Functions.SetVehicleProperties(${1:Vehicle},${2:Props})"
 		],
 		"description": "Set Vehicle Properties"
-	  },
-	  "Delete Object": {
+	},
+	"CLIENT: Delete Object": {
 		"prefix": "DeleteObject",
 		"body": [
-		  "QBCore.Functions.DeleteObject(${1:Object})"
+			"QBCore.Functions.DeleteObject(${1:Object})"
 		],
 		"description": "Delete Object"
-	  },
-	  "Get Vehicles In Area": {
+	},
+	"CLIENT: Get Vehicles In Area": {
 		"prefix": "GetVehiclesInArea",
 		"body": [
-		  "QBCore.Functions.GetVehiclesInArea(${1:Coords},${2:Area})",
-		  "-- Area = number",
-		  "--Coods = vector3()",
-		  "-- Return a table with vehicles in a X coords and Area"
+			"QBCore.Functions.GetVehiclesInArea(${1:Coords},${2:Area})",
+			"-- Area = number",
+			"--Coods = vector3()",
+			"-- Return a table with vehicles in a X coords and Area"
 		],
 		"description": "Get Vehicles In Area"
-	  	},
-	  	"Fetch Data from the sql and store it on a variable": {
-  		"prefix": "sql:fetchSync",
-  		"body": [
-   		 "local result = exports.oxmysql:fetchSync(${1:Query})"
-  		],
-  		"description": "Fetch Data from the sql and store it on a variable"
-		},
-	  "SERVER: Get Identifier ": {
+	},
+	"SERVER: Fetch Data from the sql and store it on a variable": {
+		"prefix": "sql:fetchSync",
+		"body": [
+			"local result = exports.oxmysql:fetchSync(${1:Query})"
+		],
+		"description": "Fetch Data from the sql and store it on a variable"
+	},
+	"SERVER: Get Identifier ": {
 		"prefix": "GetIdentifier",
 		"body": [
-		  "QBCore.Functions.GetIdentifier(${1:Source},${2:Identifier})",
-		  "-- ${2:Identifier} = \"License\",\"discord\"",
-		  ""
+			"QBCore.Functions.GetIdentifier(${1:Source},${2:Identifier})",
+			"-- ${2:Identifier} = \"License\",\"discord\"",
+			""
 		],
 		"description": "SERVER: Get Identifier "
-	  },
-	  "SERVER: Get Source": {
+	},
+	"SERVER: Get Source": {
 		"prefix": "GetIdentifier",
 		"body": [
-		  "QBCore.Functions.GetSource(${1:Source})",
-		  "-- ${1:Source} = QBCore.Functions.GetSource",
-		  ""
+			"QBCore.Functions.GetSource(${1:Source})",
+			"-- ${1:Source} = QBCore.Functions.GetSource",
+			""
 		],
 		"description": "SERVER: Get Source"
-	  },
-	  "SERVER: Get Player": {
+	},
+	"SERVER: Get Player": {
 		"prefix": "GetSource",
 		"body": [
-		  "QBCore.Functions.GetPlayer(${2:CitizenID})",
-		  "-- ${2:CitizenID} = Return the source of the player",
-		  ""
+			"QBCore.Functions.GetPlayer(${2:CitizenID})",
+			"-- ${2:CitizenID} = Return the source of the player",
+			""
 		],
 		"description": "SERVER: Get Player"
-	  },
-	  "SERVER: Get Player By his CitizenID": {
+	},
+	"SERVER: Get Player By his CitizenID": {
 		"prefix": "GetPlayerByCitizenId",
 		"body": [
-		  "QBCore.Functions.GetPlayerByCitizenId(${2:CitizenID})",
-		  "-- ${2:CitizenID} = Return the Data from the player",
-		  ""
+			"QBCore.Functions.GetPlayerByCitizenId(${2:CitizenID})",
+			"-- ${2:CitizenID} = Return the Data from the player",
+			""
 		],
 		"description": "SERVER: Get Player By his CitizenID"
-	  },
-	  "SERVER: Get Player By his Phone Number": {
+	},
+	"SERVER: Get Player By his Phone Number": {
 		"prefix": "GetPlayerByPhone",
 		"body": [
-		  "QBCore.Functions.GetPlayerByPhone(${1:PhoneNumber})",
-		  "-- ${1:PhoneNumber} = Return the Player Data",
-		  ""
+			"QBCore.Functions.GetPlayerByPhone(${1:PhoneNumber})",
+			"-- ${1:PhoneNumber} = Return the Player Data",
+			""
 		],
 		"description": "SERVER: Get Player By his Phone Number"
-	  },
-	  "SERVER: Get All Players": {
+	},
+	"SERVER: Get All Players": {
 		"prefix": "GetPlayers",
 		"body": [
-		  "QBCore.Functions.GetPlayers()",
-		  "-- Get All Players",
-		  ""
+			"QBCore.Functions.GetPlayers()",
+			"-- Get All Players",
+			""
 		],
 		"description": "SERVER: Get All Players"
-	  },
-	  "SERVER: Create a Callback": {
+	},
+	"SERVER: Create a Callback": {
 		"prefix": "CreateCallback",
 		"body": [
-		  "QBCore.Functions.CreateCallback(${1:Name},${2:Callback})",
-		  "-- QBCore.Functions.CreateCallback('${1:name}', function(source, ${2:Callback})",
-		  "--    ${2:Callback}(...)",
-		  "--end)",
-		  ""
+			"QBCore.Functions.CreateCallback(${1:Name},${2:Callback})",
+			"-- QBCore.Functions.CreateCallback('${1:name}', function(source, ${2:Callback})",
+			"--    ${2:Callback}(...)",
+			"--end)",
+			""
 		],
 		"description": "SERVER: Create a Callback"
-	  },
-	  "SERVER: Create a Usable item": {
+	},
+	"SERVER: Create a Usable item": {
 		"prefix": "CreateUseableItem",
 		"body": [
-		  "QBCore.Functions.CreateUseableItem(${1:Item},${2:Callback})",
-		  "--EXAMPLE",
-		  "-- QBCore.Functions.CreateUseableItem(${1:Item}, function(source, item) --${2:Callback}",
-		  "--    local Player = QBCore.Functions.GetPlayer(source)",
-		  "--	if Player.Functions.GetItemByName('lighter') ~= nil then",
-		  " --       TriggerClientEvent(\"explosive:UseExplosive\", source)",
-		  "--    else",
-		  " --       TriggerClientEvent('QBCore:Notify', source, \"You miss something to fire it with..\", \"error\")",
-		  " --   end",
-		  "--end)",
-		  ""
+			"QBCore.Functions.CreateUseableItem(${1:Item},${2:Callback})",
+			"--EXAMPLE",
+			"-- QBCore.Functions.CreateUseableItem(${1:Item}, function(source, item) --${2:Callback}",
+			"--    local Player = QBCore.Functions.GetPlayer(source)",
+			"--	if Player.Functions.GetItemByName('lighter') ~= nil then",
+			" --       TriggerClientEvent(\"explosive:UseExplosive\", source)",
+			"--    else",
+			" --       TriggerClientEvent('QBCore:Notify', source, \"You miss something to fire it with..\", \"error\")",
+			" --   end",
+			"--end)",
+			""
 		],
 		"description": "SERVER: Create a Usable item"
-	  },
-	  "SERVER: Check if Player Can use Item": {
+	},
+	"SERVER: Check if Player Can use Item": {
 		"prefix": "CanUseItem",
 		"body": [
-		  "QBCore.Functions.CanUseItem(${1:ItemName})",
-		  "--Return True or False ",
-		  "--EXAMPLE",
-		  "--  if QBCore.Functions.CanUseItem(item.name) then",
-		  "--	QBCore.Functions.UseItem(src, item)",
-		  "--  end"
+			"QBCore.Functions.CanUseItem(${1:ItemName})",
+			"--Return True or False ",
+			"--EXAMPLE",
+			"--  if QBCore.Functions.CanUseItem(item.name) then",
+			"--	QBCore.Functions.UseItem(src, item)",
+			"--  end"
 		],
 		"description": "SERVER: Check if Player Can use Item"
-	  },
-	  "SERVER: Force the Player to use an Item": {
+	},
+	"SERVER: Force the Player to use an Item": {
 		"prefix": "Use Item",
 		"body": [
-		  "QBCore.Functions.UseItem(${1:ItemName})",
-		  "--Force the Player to use an Item"
+			"QBCore.Functions.UseItem(${1:ItemName})",
+			"--Force the Player to use an Item"
 		],
 		"description": "SERVER: Force the Player to use an Item"
-	  },
-	  "SERVER: Kick a Player": {
+	},
+	"SERVER: Kick a Player": {
 		"prefix": "Kick",
 		"body": [
-		  "QBCore.Functions.Kick(${1:Source},${2:Reason},${3:setKickReason},${4:deferrals})",
-		  "--Kick the Player, ${3:setKickReason} and ${4:deferrals} can be nil"
+			"QBCore.Functions.Kick(${1:Source},${2:Reason},${3:setKickReason},${4:deferrals})",
+			"--Kick the Player, ${3:setKickReason} and ${4:deferrals} can be nil"
 		],
 		"description": "SERVER: Kick a Player"
-	  },
-	  "SERVER: Trigger a Notify From the Server to the Client": {
+	},
+	"SERVER: Trigger a Notify From the Server to the Client": {
 		"prefix": "Notify",
 		"body": [
-		  "TriggerClientEvent(\"QBCore:Notify\",source,\"${1:Message}\")"
+			"TriggerClientEvent(\"QBCore:Notify\",source,\"${1:Message}\")"
 		],
 		"description": "SERVER: Trigger a Notify From the Server to the Client"
-	  },
-	  "SERVER: Trigger Framework Event": {
+	},
+	"SERVER: Trigger Framework Event": {
 		"prefix": "GetObject",
 		"body": [
-		  "local QBCore = exports['qb-core']:GetSharedObject()",
+			"local QBCore = exports['qb-core']:GetSharedObject()",
 		],
 		"description": "SERVER: Trigger Framework Event"
-	  },
-	  "SERVER: Register a Net Event": {
+	},
+	"SERVER: Register a Net Event": {
 		"prefix": "RegisterNetEvent",
 		"body": [
-		  "RegisterServerEvent('${1:ServerEvent}', function(${2:Value})",
-		  "",
-		  "",
-		  "end)"
+			"RegisterServerEvent('${1:ServerEvent}', function(${2:Value})",
+			"",
+			"",
+			"end)"
 		],
 		"description": "SERVER: Register a Net Event"
-	  },
-	  "SERVER: Register a Command": {
+	},
+	"SERVER: Register a Command": {
 		"prefix": "qbcommand",
 		"body": [
-		  "QBCore.Commands.Add(${1:name}, ${2:Help}, ${3:arguments}, ${4:ArgsRequired}, ${5:Callback}, ${6:Permission})",
-		  "-- QBCore.Commands.Add(\"setgroup\", \"Give permission to someone (god/admin)\", {{name=\"id\", help=\"ID of the player\"}, {name=\"permission\", help=\"Permission level\"}}, true, function(source, args)",
-		  "--	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))",
-		  "--	local permission = tostring(args[2]):lower()",
-		  "-- end, \"user\")"
+			"QBCore.Commands.Add(${1:name}, ${2:Help}, ${3:arguments}, ${4:ArgsRequired}, ${5:Callback}, ${6:Permission})",
+			"-- QBCore.Commands.Add(\"setgroup\", \"Give permission to someone (god/admin)\", {{name=\"id\", help=\"ID of the player\"}, {name=\"permission\", help=\"Permission level\"}}, true, function(source, args)",
+			"--	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))",
+			"--	local permission = tostring(args[2]):lower()",
+			"-- end, \"user\")"
 		],
 		"description": "SERVER: Register a Command"
-	  },
-	  "CLIENT: Register a Net Event": {
+	},
+	"CLIENT: Register a Net Event": {
 		"prefix": "NetEvent",
 		"body": [
-		  "RegisterNetEvent(${1:Name},function(${2:value})",
-		  "",
-		  "end)"
+			"RegisterNetEvent(${1:Name},function(${2:value})",
+			"",
+			"end)"
 		],
 		"description": "Client: Register a Net Event"
-	  },
-	"Execute sql and store the value to a variable": {
-  "prefix": "sql:executeSync",
-  "body": [
-    "local result = exports.oxmysql:executeSync(${1:Query})"
-  ],
-  "description": "Execute sql and store the value to a variable"
-}
+	},
+	"SERVER: Execute sql and store the value to a variable": {
+		"prefix": "sql:executeSync",
+		"body": [
+			"local result = exports.oxmysql:executeSync(${1:Query})"
+		],
+		"description": "Execute sql and store the value to a variable"
+	}
 }
