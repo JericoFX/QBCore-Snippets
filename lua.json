@@ -1,19 +1,19 @@
 {
 	//BY JERICOFX
 	"Call Core Client side": {
-		"prefix": "QCORE:GetObject",
+		"prefix": "QBCore:GetObject",
 		"body": [
-		  "local ${1:QBCore} = exports['qb-core']:GetSharedObject()",
+		  "local QBCore = exports['qb-core']:GetSharedObject()",
 		],
 		"description": "Call Core Client side"
 	  },
 	  "OnPlayerLoaded": {
 		"prefix": "OnPlayerLoaded",
 		"body": [
-		  "${2:QBCore} 	= {}",
-		  "RegisterNetEvent('${1:QBCore}:Client:OnPlayerLoaded'),",
-		  "AddEventHandler('${1:QBCore}:Client:OnPlayerLoaded', function(),",
-		  "	${2:QBCore} = ${1:QBCore}$0.Functions.GetPlayerData(),",
+		  "${2:PlayerData} 	= {}",
+		  "RegisterNetEvent('QBCore:Client:OnPlayerLoaded'),",
+		  "AddEventHandler('QBCore:Client:OnPlayerLoaded', function(),",
+		  "	${2:PlayerData} = QBCore.Functions.GetPlayerData(),",
 		  "end)",
 		  ""
 		],
