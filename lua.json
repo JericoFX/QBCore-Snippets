@@ -2,7 +2,7 @@
 	"CLIENT/SERVER:Call Core": {
 		"prefix": "QBCore:GetObject",
 		"body": [
-			"local QBCore = exports['qb-core']:GetObjectObject(),"
+			"local QBCore = exports['qb-core']:GetCoreObject(),"
 		],
 		"description": "Call Core"
 	},
@@ -28,8 +28,8 @@
 		],
 		"description": "On Job Update Event"
 	},
-	"CLIENT: Core Notify": {
-		"prefix": "Notify",
+	"CLIENT: Notify": {
+		"prefix": "Client:Notify",
 		"body": [
 			"QBCore.Functions.Notify(\"${1:message}$0\")"
 		],
@@ -274,10 +274,11 @@
 	"SERVER: Create a Callback": {
 		"prefix": "CreateCallback",
 		"body": [
-			"QBCore.Functions.CreateCallback(${1:Name},${2:Callback})",
-			"-- QBCore.Functions.CreateCallback('${1:name}', function(source, ${2:Callback})",
-			"--    ${2:Callback}(...)",
-			"--end)",
+			"QBCore.Functions.CreateCallback(${1:Name},function(source,cb,${1:AditionalParameter})",
+			"-- QBCore.Functions.CreateCallback('Name', function(source, cb)",
+			"--    cb(...)",
+			"--end)",3
+			"end)",
 			""
 		],
 		"description": "SERVER: Create a Callback"
@@ -285,9 +286,9 @@
 	"SERVER: Create a Usable item": {
 		"prefix": "CreateUseableItem",
 		"body": [
-			"QBCore.Functions.CreateUseableItem(${1:Item},${2:Callback})",
+			"QBCore.Functions.CreateUseableItem(${1:Item},function(source,item)",
 			"--EXAMPLE",
-			"-- QBCore.Functions.CreateUseableItem(${1:Item}, function(source, item) --${2:Callback}",
+			"-- QBCore.Functions.CreateUseableItem(${1:Item}, function(source, item) --",
 			"--    local Player = QBCore.Functions.GetPlayer(source)",
 			"--	if Player.Functions.GetItemByName('lighter') ~= nil then",
 			" --       TriggerClientEvent(\"explosive:UseExplosive\", source)",
@@ -295,6 +296,7 @@
 			" --       TriggerClientEvent('QBCore:Notify', source, \"You miss something to fire it with..\", \"error\")",
 			" --   end",
 			"--end)",
+			"end)",
 			""
 		],
 		"description": "SERVER: Create a Usable item"
@@ -328,16 +330,16 @@
 		"description": "SERVER: Kick a Player"
 	},
 	"SERVER: Trigger a Notify From the Server to the Client": {
-		"prefix": "Notify",
+		"prefix": "Server:Notify",
 		"body": [
 			"TriggerClientEvent(\"QBCore:Notify\",source,\"${1:Message}\")"
 		],
 		"description": "SERVER: Trigger a Notify From the Server to the Client"
 	},
 	"SERVER: Trigger Framework Event": {
-		"prefix": "GetObject",
+		"prefix": "Server:GetObject",
 		"body": [
-			"local QBCore = exports['qb-core']:GetSharedObject()",
+			"local QBCore = exports['qb-core']:GetCoreObject()",
 		],
 		"description": "SERVER: Trigger Framework Event"
 	},
@@ -358,7 +360,8 @@
 			"-- QBCore.Commands.Add(\"setgroup\", \"Give permission to someone (god/admin)\", {{name=\"id\", help=\"ID of the player\"}, {name=\"permission\", help=\"Permission level\"}}, true, function(source, args)",
 			"--	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))",
 			"--	local permission = tostring(args[2]):lower()",
-			"-- end, \"user\")"
+			"-- end, \"user\")",
+			"end, \"user\")"
 		],
 		"description": "SERVER: Register a Command"
 	},
