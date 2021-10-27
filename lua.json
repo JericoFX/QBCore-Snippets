@@ -380,5 +380,30 @@
 			"local result = exports.oxmysql:executeSync(${1:Query})"
 		],
 		"description": "Execute sql and store the value to a variable"
-	}
+	},
+	"CLIENT:Open QB-Menu": {
+  "prefix": "OpenMenu",
+  "body": [
+    "-- https://github.com/qbcore-framework/qb-menu/blob/main/README.md",
+    "local MenuData = {",
+    "        {",
+    "            header = \"${1:HeaderTitle}\",",
+    "            isMenuHeader = true, ",
+    "        },",
+    "        {",
+    "            header = \"Sub Menu Button\",",
+    "            txt = \"This goes to a sub menu\",",
+    "            params = {",
+    "                event = \"qb-menu:client:testMenu2\", --TriggerEvent",
+    "                args = { -- Args",
+    "                    number = 1,",
+    "                }",
+    "            }",
+    "        },",
+    "    }",
+    "exports.qb-menu:openMenu(MenuData)"
+  ],
+  "description": "CLIENT:Open QB-Menu"
+},
+	
 }
