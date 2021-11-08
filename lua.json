@@ -2,7 +2,7 @@
 	"CLIENT/SERVER:Call Core": {
 		"prefix": "QBCore:GetObject",
 		"body": [
-			"local QBCore = exports['qb-core']:GetCoreObject(),"
+			"local QBCore = exports['qb-core']:GetCoreObject()"
 		],
 		"description": "Call Core"
 	},
