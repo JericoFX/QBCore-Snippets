@@ -405,5 +405,11 @@
   ],
   "description": "CLIENT:Open QB-Menu"
 },
-	
+	"Print into Server console": {
+  "prefix": "Debug",
+  "body": [
+    "QBCore.Debug(${1:data})"
+  ],
+  "description": "Print into Server console"
+},
 }
