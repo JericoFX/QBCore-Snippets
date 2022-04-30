@@ -34,9 +34,8 @@
 	  "On Job Update": {
 		"prefix": "JobUpdate",
 		"body": [
-		  "RegisterNetEvent('${1:example}:Client:OnJobUpdate'),",
-		  "AddEventHandler('${1:example}:Client:OnJobUpdate', function(job),",
-		  "${2:example}.job = job,",
+		  "RegisterNetEvent('${1:example}:Client:OnJobUpdate', function(job)",
+		  "${2:example}.job = job",
 		  "end)"
 		],
 		"description": "On Job Update"
