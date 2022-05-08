@@ -1,415 +1,606 @@
 {
-	"CLIENT/SERVER:Call Core": {
-		"prefix": "QBCore:GetObject",
-		"body": [
-			"local QBCore = exports['qb-core']:GetCoreObject()"
-		],
-		"description": "Call Core"
-	},
-	"CLIENT: OnPlayerLoaded": {
-		"prefix": "OnPlayerLoaded",
-		"body": [
-			"local ${2:PlayerData} 	= {},",
-			"RegisterNetEvent('QBCore:Client:OnPlayerLoaded'),",
-			"AddEventHandler('QBCore:Client:OnPlayerLoaded', function(),",
-			"	${2:PlayerData} = QBCore.Functions.GetPlayerData(),",
-			"end)",
-			""
-		],
-		"description": "OnPlayerLoaded"
-	},
-	"CLIENT: OnJobUpdate": {
-		"prefix": "OnJobUpdate",
-		"body": [
-			"RegisterNetEvent('QBCore:Client:OnJobUpdate'),",
-			"AddEventHandler('QBCore:Client:OnJobUpdate', function(job),",
-			"${1:PlayerData}.job = job,",
-			"end)"
-		],
-		"description": "On Job Update Event"
-	},
-	"CLIENT: Notify": {
-		"prefix": "Client:Notify",
-		"body": [
-			"QBCore.Functions.Notify(\"${1:message}$0\")"
-		],
-		"description": "Send a Notification from the client"
-	},
-
-	"CLIENT: Trigger Callback": {
-		"prefix": "TriggerCallback",
-		"body": [
-			"QBCore.Functions.TriggerCallback(\"${1:nameCallback}\",function(${2:DataReturning}) ",
-			"",
-			"",
-			"",
-			"end)"
-		],
-		"description": "Trigger Callback from client"
-	},
-	"CLIENT: Get Vehicle Properties": {
-		"prefix": "GetVehicleProperties",
-		"body": [
-			"QBCore.Functions.GetVehicleProperties(${1:Vehicle})"
-		],
-		"description": "Get Vehicle Properties"
-	},
-	"CLIENT: Delete Vehicle": {
-		"prefix": "DeleteVehicle",
-		"body": [
-			"QBCore.Functions.DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))"
-		],
-		"description": "Delete Vehicle"
-	},
-
-	"SERVER: Trigger a Server Event": {
-		"prefix": "TriggerServerEvent",
-		"body": [
-			"TriggerServerEvent(\"${1:TriggerName}\",${2:value1},${3:value2})"
-		],
-		"description": "Trigger a Server Event"
-	},
-	"CLIENT:Draw Text on Screen": {
-		"prefix": "DrawText",
-		"body": [
-			"QBCore.Functions.DrawText(${2:x},${3:y},${4:width},${5:height},${6:scale},${7:r},${8:g},${9:b},${10:alpha},${11:text})"
-		],
-		"description": "Draw Text on Screen"
-	},
-	"CLIENT: Draw 3D Text on Screen": {
-		"prefix": "3DText",
-		"body": [
-			"QBCore.Functions.DrawText3D(${2:x},${3:y},${4:z},${5:text})"
-		],
-		"description": "Draw 3D Text on Screen"
-	},
-	"CLIENT: Get Entity Coords": {
-		"prefix": "GetCoords",
-		"body": [
-			"QBCore.Functions.GetCoords(${1:Entity})"
-		],
-		"description": "Get Entity Coords"
-	},
-	"CLIENT: Spawn Vehicle": {
-		"prefix": "SpawnVehicle",
-		"body": [
-			"QBCore.Functions.SpawnVehicle(${1:Model},function(${2:Callback})",
-			"",
-			"end,${3:Coords},${4:IsNetworked})"
-		],
-		"description": "Spawn Vehicle"
-	},
-	"CLIENT: Get Player Data From client": {
-		"prefix": "GetPlayerData",
-		"body": [
-			"QBCore.Functions.GetPlayerData()"
-		],
-		"description": "Get Player Data From client"
-	},
-	"CLIENT: Get All Vehicles": {
-		"prefix": "GetVehicles",
-		"body": [
-			"QBCore.Functions.GetVehicles()",
-			"--Return a table with All Vehicles"
-		],
-		"description": "Get All Vehicles"
-	},
-	"CLIENT: Get All Peds": {
-		"prefix": "Getpeds",
-		"body": [
-			"QBCore.Functions.GetPeds(${1:IgnoreList})",
-			"--Ignore List can be empty"
-		],
-		"description": "Get All Peds"
-	},
-	"CLIENT: Get All Players": {
-		"prefix": "GetPlayers",
-		"body": [
-			"QBCore.Functions.GetPlayers()",
-			"--Return All Players"
-		],
-		"description": "Get All Players"
-	},
-	"CLIENT: Get Closest Vehicle": {
-		"prefix": "GetClosestVehicle",
-		"body": [
-			"QBCore.Functions.GetClosestVehicle(${1:Coords})",
-			"--Return the closest Vehicle to the player, Arguments Coords is Optional"
-		],
-		"description": "Get Closest Vehicle"
-	},
-	"CLIENT: Get Closest Ped": {
-		"prefix": "GetClosestPed",
-		"body": [
-			"QBCore.Functions.GetClosestPed(${1:Coords},${2:IgnoreList})",
-			"--Return the closest Ped, Coords and IgnoreList are Optionals"
-		],
-		"description": "Get Closest Ped"
-	},
-	"CLIENT: Get Closest Player": {
-		"prefix": "GetClosestPlayer",
-		"body": [
-			"QBCore.Functions.GetClosestPlayer(${1:Coords})",
-			"--Return the closest player, Coords are Optional"
-		],
-		"description": "Get Closest Player"
-	},
-	"CLIENT: Get Closest Player From Coords": {
-		"prefix": "GetClosestPlayer",
-		"body": [
-			"QBCore.Functions.GetPlayersFromCoords()${1:Coords,${2:Distance}}",
-			"--Return an array of players in X Coords, coords and Distance are Optionals"
-		],
-		"description": "Get Closest Player From Coords"
-	},
-	"CLIENT: Check if Player Has Item": {
-		"prefix": "HasItem",
-		"body": [
-			"QBCore.Functions.HasItem(${1:Source},${2:Callback},${3:Item})",
-			"--Return true or False if player has item"
-		],
-		"description": "Check if Player Has Item"
-	},
-	"CLIENT:Progress Bar": {
-		"prefix": "ProgressBar",
-		"body": [
-			"QBCore.Functions.Progressbar(${1:Name}, ${2:Label}, ${3:Duration}, ${4:useWhileDead}, ${5:canCancel}, {",
-			"                    disableMovement = true, --",
-			"                    disableCarMovement = true,",
-			"                    disableMouse = false,",
-			"                    disableCombat = true,",
-			"                }, {}, {}, {}, function() ",
-			"                   -- Function Executed when the bar finish",
-			"                end, function() -- Cancel",
-			"                    -- Function Executed when the player Cancel",
-			"                end)"
-		],
-		"description": "Progress Bar"
-	},
-	"CLIENT: Set Vehicle Properties": {
-		"prefix": "SetVehicleProperties",
-		"body": [
-			"QBCore.Functions.SetVehicleProperties(${1:Vehicle},${2:Props})"
-		],
-		"description": "Set Vehicle Properties"
-	},
-	"CLIENT: Delete Object": {
-		"prefix": "DeleteObject",
-		"body": [
-			"QBCore.Functions.DeleteObject(${1:Object})"
-		],
-		"description": "Delete Object"
-	},
-	"CLIENT: Get Vehicles In Area": {
-		"prefix": "GetVehiclesInArea",
-		"body": [
-			"QBCore.Functions.GetVehiclesInArea(${1:Coords},${2:Area})",
-			"-- Area = number",
-			"--Coods = vector3()",
-			"-- Return a table with vehicles in a X coords and Area"
-		],
-		"description": "Get Vehicles In Area"
-	},
-	"SERVER: Fetch Data from the sql and store it on a variable": {
-		"prefix": "sql:fetchSync",
-		"body": [
-			"local result = exports.oxmysql:fetchSync(${1:Query})"
-		],
-		"description": "Fetch Data from the sql and store it on a variable"
-	},
-	"SERVER: Get Identifier ": {
-		"prefix": "GetIdentifier",
-		"body": [
-			"QBCore.Functions.GetIdentifier(${1:Source},${2:Identifier})",
-			"-- ${2:Identifier} = \"License\",\"discord\"",
-			""
-		],
-		"description": "SERVER: Get Identifier "
-	},
-	"SERVER: Get Source": {
-		"prefix": "GetIdentifier",
-		"body": [
-			"QBCore.Functions.GetSource(${1:Source})",
-			"-- ${1:Source} = QBCore.Functions.GetSource",
-			""
-		],
-		"description": "SERVER: Get Source"
-	},
-	"SERVER: Get Player": {
-		"prefix": "GetSource",
-		"body": [
-			"QBCore.Functions.GetPlayer(${2:CitizenID})",
-			"-- ${2:CitizenID} = Return the source of the player",
-			""
-		],
-		"description": "SERVER: Get Player"
-	},
-	"SERVER: Get Player By his CitizenID": {
-		"prefix": "GetPlayerByCitizenId",
-		"body": [
-			"QBCore.Functions.GetPlayerByCitizenId(${2:CitizenID})",
-			"-- ${2:CitizenID} = Return the Data from the player",
-			""
-		],
-		"description": "SERVER: Get Player By his CitizenID"
-	},
-	"SERVER: Get Player By his Phone Number": {
-		"prefix": "GetPlayerByPhone",
-		"body": [
-			"QBCore.Functions.GetPlayerByPhone(${1:PhoneNumber})",
-			"-- ${1:PhoneNumber} = Return the Player Data",
-			""
-		],
-		"description": "SERVER: Get Player By his Phone Number"
-	},
-	"SERVER: Get All Players": {
-		"prefix": "GetPlayers",
-		"body": [
-			"QBCore.Functions.GetPlayers()",
-			"-- Get All Players",
-			""
-		],
-		"description": "SERVER: Get All Players"
-	},
-	"SERVER: Create a Callback": {
-		"prefix": "CreateCallback",
-		"body": [
-			"QBCore.Functions.CreateCallback(${1:Name},function(source,cb,${1:AditionalParameter})",
-			"-- QBCore.Functions.CreateCallback('Name', function(source, cb)",
-			"--    cb(...)",
-			"--end)",3
-			"end)",
-			""
-		],
-		"description": "SERVER: Create a Callback"
-	},
-	"SERVER: Create a Usable item": {
-		"prefix": "CreateUseableItem",
-		"body": [
-			"QBCore.Functions.CreateUseableItem(${1:Item},function(source,item)",
-			"--EXAMPLE",
-			"-- QBCore.Functions.CreateUseableItem(${1:Item}, function(source, item) --",
-			"--    local Player = QBCore.Functions.GetPlayer(source)",
-			"--	if Player.Functions.GetItemByName('lighter') ~= nil then",
-			" --       TriggerClientEvent(\"explosive:UseExplosive\", source)",
-			"--    else",
-			" --       TriggerClientEvent('QBCore:Notify', source, \"You miss something to fire it with..\", \"error\")",
-			" --   end",
-			"--end)",
-			"end)",
-			""
-		],
-		"description": "SERVER: Create a Usable item"
-	},
-	"SERVER: Check if Player Can use Item": {
-		"prefix": "CanUseItem",
-		"body": [
-			"QBCore.Functions.CanUseItem(${1:ItemName})",
-			"--Return True or False ",
-			"--EXAMPLE",
-			"--  if QBCore.Functions.CanUseItem(item.name) then",
-			"--	QBCore.Functions.UseItem(src, item)",
-			"--  end"
-		],
-		"description": "SERVER: Check if Player Can use Item"
-	},
-	"SERVER: Force the Player to use an Item": {
-		"prefix": "Use Item",
-		"body": [
-			"QBCore.Functions.UseItem(${1:ItemName})",
-			"--Force the Player to use an Item"
-		],
-		"description": "SERVER: Force the Player to use an Item"
-	},
-	"SERVER: Kick a Player": {
-		"prefix": "Kick",
-		"body": [
-			"QBCore.Functions.Kick(${1:Source},${2:Reason},${3:setKickReason},${4:deferrals})",
-			"--Kick the Player, ${3:setKickReason} and ${4:deferrals} can be nil"
-		],
-		"description": "SERVER: Kick a Player"
-	},
-	"SERVER: Trigger a Notify From the Server to the Client": {
-		"prefix": "Server:Notify",
-		"body": [
-			"TriggerClientEvent(\"QBCore:Notify\",source,\"${1:Message}\")"
-		],
-		"description": "SERVER: Trigger a Notify From the Server to the Client"
-	},
-	"SERVER: Trigger Framework Event": {
-		"prefix": "Server:GetObject",
-		"body": [
-			"local QBCore = exports['qb-core']:GetCoreObject()",
-		],
-		"description": "SERVER: Trigger Framework Event"
-	},
-	"SERVER: Register a Net Event": {
-		"prefix": "RegisterNetEvent",
-		"body": [
-			"RegisterServerEvent('${1:ServerEvent}', function(${2:Value})",
-			"",
-			"",
-			"end)"
-		],
-		"description": "SERVER: Register a Net Event"
-	},
-	"SERVER: Register a Command": {
-		"prefix": "qbcommand",
-		"body": [
-			"QBCore.Commands.Add(${1:name}, ${2:Help}, ${3:arguments}, ${4:ArgsRequired}, ${5:Callback}, ${6:Permission})",
-			"-- QBCore.Commands.Add(\"setgroup\", \"Give permission to someone (god/admin)\", {{name=\"id\", help=\"ID of the player\"}, {name=\"permission\", help=\"Permission level\"}}, true, function(source, args)",
-			"--	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))",
-			"--	local permission = tostring(args[2]):lower()",
-			"-- end, \"user\")",
-			"end, \"user\")"
-		],
-		"description": "SERVER: Register a Command"
-	},
-	"CLIENT: Register a Net Event": {
-		"prefix": "NetEvent",
-		"body": [
-			"RegisterNetEvent(${1:Name},function(${2:value})",
-			"",
-			"end)"
-		],
-		"description": "Client: Register a Net Event"
-	},
-	"SERVER: Execute sql and store the value to a variable": {
-		"prefix": "sql:executeSync",
-		"body": [
-			"local result = exports.oxmysql:executeSync(${1:Query})"
-		],
-		"description": "Execute sql and store the value to a variable"
-	},
-	"CLIENT:Open QB-Menu": {
-  "prefix": "OpenMenu",
-  "body": [
-    "-- https://github.com/qbcore-framework/qb-menu/blob/main/README.md",
-    "local MenuData = {",
-    "        {",
-    "            header = \"${1:HeaderTitle}\",",
-    "            isMenuHeader = true, ",
-    "        },",
-    "        {",
-    "            header = \"Sub Menu Button\",",
-    "            txt = \"This goes to a sub menu\",",
-    "            params = {",
-    "                event = \"qb-menu:client:testMenu2\", --TriggerEvent",
-    "                args = { -- Args",
-    "                    number = 1,",
-    "                }",
-    "            }",
-    "        },",
-    "    }",
-    "exports.qb-menu:openMenu(MenuData)"
-  ],
-  "description": "CLIENT:Open QB-Menu"
-},
-	"Print into Server console": {
-  "prefix": "Debug",
-  "body": [
-    "QBCore.Debug(${1:data})"
-  ],
-  "description": "Print into Server console"
-},
+  "CLIENT/GetPlayerData": {
+    "prefix": "GetPlayerData",
+    "body": [
+      "local ${1:variable} = QBCore.Functions.GetPlayerData()"
+    ],
+    "description": "CLIENT/GetPlayerData"
+  },
+  "CLIENT/Get the coords of an entity": {
+    "prefix": "GetCoords",
+    "body": [
+      "-- Return the vector 4 and with x,y,z and w",
+      "local ${1:variable} = QBCore.Functions.GetCoords(${2:entity})",
+      "",
+      ""
+    ],
+    "description": "CLIENT/GetCoords"
+  },
+  "CLIENT/return true or false if the player has or not the item": {
+    "prefix": "HasItem",
+    "body": [
+      "-- Return true or false if the player has ${2:item} item",
+      "local ${1:variable} = QBCore.Functions.HasItem(${2:item})",
+      "",
+      ""
+    ],
+    "description": "CLIENT/HasItem"
+  },
+  "CLIENT/Floating text on the screen": {
+    "prefix": "DrawText",
+    "body": [
+      "QBCore.Functions.DrawText(${1:x}, ${2:y}, ${3:width}, ${4:height}, ${5:scale}, ${6:r}, ${7:g}, ${8:b}, ${9:alpha}, ${10:text})",
+      "",
+      ""
+    ],
+    "description": "CLIENT/DrawText"
+  },
+  "CLIENT/ Draw text on a 3D space": {
+    "prefix": "DrawText3D",
+    "body": [
+      "QBCore.Functions.DrawText3D(${1:x},${2:y},${3:z},${4:text})",
+      "",
+      ""
+    ],
+    "description": "CLIENT/DrawText3D Draw text on a 3D space"
+  },
+  "CLIENT/USE PlayAnim it already load the animation before playing": {
+    "prefix": "DrawText3D",
+    "body": [
+      "QBCore.Functions.RequestAnimDict(${1:animationDict})",
+      "",
+      ""
+    ],
+    "description": "CLIENT/Request Animation Dictionary, USE PlayAnim it already load the animation before playing"
+  },
+  "CLIENT/Play Animation": {
+    "prefix": "PlayAnim",
+    "body": [
+      "QBCore.Functions.PlayAnim(${1:animDict}, ${2:animName}, ${3:upperBodyOnly}, ${4:duration})",
+      "",
+      ""
+    ],
+    "description": "CLIENT/Play Animation"
+  },
+  "CLIENT/Load a Model into memory": {
+    "prefix": "LoadModel",
+    "body": [
+      "QBCore.Functions.LoadModel(${1:model})"
+    ],
+    "description": "CLIENT/Load a Model into memory"
+  },
+  "CLIENT/Send a Nofitication from the client": {
+    "prefix": "Notify",
+    "body": [
+      "--Types: success,primary,error,police,ambulance",
+      "QBCore.Functions.Notify(${1:Text}, ${2:textType}, ${3:length})"
+    ],
+    "description": "CLIENT/Send a Nofitication from the client"
+  },
+  "CLIENT/This print on the server console the table or value you pass (you need to open svgui)": {
+    "prefix": "Debug",
+    "body": [
+      "-- Print on the server console a table",
+      "QBCore.Debug(${1:resource}, ${1:obj}, ${1:deph})"
+    ],
+    "description": "CLIENT/Debug"
+  },
+  "CLIENT/Trigger a server event with a return of a value": {
+    "prefix": "TriggerCallback",
+    "body": [
+      "",
+      "QBCore.Functions.TriggerCallback(${1:name},function(${2:returnValue}))",
+      "",
+      "end,${3:Datasend})"
+    ],
+    "description": "CLIENT/Trigger a server event with a return of a value"
+  },
+  "CLIENT/ Get all vehicles from client": {
+    "prefix": "GetVehicles",
+    "body": [
+      "QBCore.Functions.GetVehicles()"
+    ],
+    "description": "CLIENT/GetVehicles Get all vehicles from client"
+  },
+  "CLIENT/GetObjects": {
+    "prefix": "GetObjects",
+    "body": [
+      "QBCore.Functions.GetObjects()"
+    ],
+    "description": "CLIENT/GetObjects"
+  },
+  "CLIENT/Return the closest player and distance": {
+    "prefix": "GetClosestPlayer",
+    "body": [
+      "--This return the closes PLAYER and the distance",
+      "-- Optional Coords",
+      "",
+      "local ${1:player}, ${2:distance} = QBCore.Functions.GetClosestPlayer(${3:coords})"
+    ],
+    "description": "CLIENT/GetClosestPlayer"
+  },
+  "CLIENT/ This return a table with the player source.": {
+    "prefix": "GetPlayersFromCoords",
+    "body": [
+      "local ${1:ClosestPlayers}= QBCore.Functions.GetPlayersFromCoords(${2:coords},${3:distance})"
+    ],
+    "description": "CLIENT/GetPlayersFromCoords This return a table with the player source."
+  },
+  "CLIENT/ return closest vehicle and the distance, argument coords is optional": {
+    "prefix": "GetClosestVehicle",
+    "body": [
+      "local closeVeh,closeDist = QBCore.Functions.GetClosestVehicle(${1:coords})"
+    ],
+    "description": "CLIENT/GetClosestVehicle return closest vehicle and the distance, argument coords is optional"
+  },
+  "CLIENT/ return closest Object and the distance, argument coords is optional": {
+    "prefix": "GetClosestObject",
+    "body": [
+      "local closeObj,closeDist = QBCore.Functions.GetClosestObject(${1:coords})"
+    ],
+    "description": "CLIENT/GetClosestObject return closest Object and the distance, argument coords is optional"
+  },
+  "CLIENT/pass an entity and a list of bones and return the most closest to the player": {
+    "prefix": "GetClosestBone",
+    "body": [
+      "local bone,coords,distance = QBCore.Functions.GetClosestBone(${1:entity},${2:list})"
+    ],
+    "description": "CLIENT/GetClosestBone pass an entity and a list of bones and return the most closest to the player"
+  },
+  "CLIENT/Spawn a vehicle": {
+    "prefix": "SpawnVehicle",
+    "body": [
+      "QBCore.Functions.SpawnVehicle(${1:model},function(veh) ",
+      "",
+      "end,${2:coords},${3:isnetworked},${4:teleportInto})"
+    ],
+    "description": "CLIENT/SpawnVehicle Spawn a vehicle"
+  },
+  "CLIENT/Delete a vehicle": {
+    "prefix": "DeleteVehicle",
+    "body": [
+      "QBCore.Functions.DeleteVehicle(${1:vehicle})"
+    ],
+    "description": "CLIENT/DeleteVehicle Delete a vehicle"
+  },
+  "CLIENT/return the plate of the passed vehicle": {
+    "prefix": "GetPlate",
+    "body": [
+      "local plate = QBCore.Functions.GetPlate(${1:vehicle})"
+    ],
+    "description": "CLIENT/GetPlate return the plate of the passed vehicle"
+  },
+  "CLIENT/return true or false if the coords are cleasr of others vehicles": {
+    "prefix": "SpawnClear",
+    "body": [
+      "local isClear = QBCore.Functions.SpawnClear(${1:coords},${2:radius})"
+    ],
+    "description": "CLIENT/SpawnClear return true or false if the coords are cleasr of others vehicles"
+  },
+  "CLIENT/return all the properties of the passed vehicle or return null": {
+    "prefix": "GetVehicleProperties",
+    "body": [
+      "local props = QBCore.Functions.GetVehicleProperties(${1:vehicle})"
+    ],
+    "description": "CLIENT/GetVehicleProperties return all the properties of the passed vehicle or return null"
+  },
+  "CLIENT/Set all the properties of a vehicle passed": {
+    "prefix": "SetVehicleProperties",
+    "body": [
+      "QBCore.Functions.SetVehicleProperties(${1:vehicle},${2:props})",
+      "--Here you can use QBCore.Functions.SetVehicleProperties(vehicle,QBCore.Functions.GetVehicleProperties(vehicle))"
+    ],
+    "description": "CLIENT/SetVehicleProperties Set all the properties of a vehicle passed"
+  },
+  "CLIENT/SERVER Get the QBCore object and all the functions": {
+    "prefix": "GetCore",
+    "body": [
+      "local QBCore = exports[\"qb-core\"]:GetCoreObject()"
+    ],
+    "description": "CLIENT/SERVER Get the QBCore object and all the functions"
+  },
+  "SERVER/Get the coords of the entity passed, return a vector4(x,y,z,w) w is heading": {
+    "prefix": "GetCore",
+    "body": [
+      "local Coords = QBCore.Functions.GetCoords(${1:entity})"
+    ],
+    "description": "SERVER/Get the coords of the entity passed, return a vector4(x,y,z,w) w is heading"
+  },
+  "SERVER/Return the passed identifier or nil if nothing is found": {
+    "prefix": "GetIdentifier",
+    "body": [
+      "local idType = QBCore.Functions.GetIdentifier(${1:source},${2:idtype})",
+      ""
+    ],
+    "description": "SERVER/Return the passed identifier or nil if nothing is found"
+  },
+  "SERVER/Return the source of the passed identifier": {
+    "prefix": "GetSource",
+    "body": [
+      "local source = QBCore.Functions.GetSource(${1:identifier})",
+      ""
+    ],
+    "description": "SERVER/Return the source of the passed identifier"
+  },
+  "SERVER/Return all the data from the respective source": {
+    "prefix": "GetPlayer",
+    "body": [
+      "local Player = QBCore.Functions.GetPlayer(${1:source})",
+      ""
+    ],
+    "description": "SERVER/Return all the data from the respective source"
+  },
+  "SERVER/Return all the data from the respective citizenid": {
+    "prefix": "GetPlayerByCitizenId",
+    "body": [
+      "local Player = QBCore.Functions.GetPlayerByCitizenId(${1:citizenid})",
+      ""
+    ],
+    "description": "SERVER/Return all the data from the respective citizenid"
+  },
+  "SERVER/Return all the data from the respective phone": {
+    "prefix": "GetPlayerByPhone",
+    "body": [
+      "local Player = QBCore.Functions.GetPlayerByPhone(${1:phoneNumber})",
+      ""
+    ],
+    "description": "SERVER/Return all the data from the respective phone"
+  },
+  "SERVER/Return all players": {
+    "prefix": "GetPlayers",
+    "body": [
+      "local Players = QBCore.Functions.GetPlayers()",
+      ""
+    ],
+    "description": "SERVER/Return all players"
+  },
+  "SERVER/Return all the DATA from all players": {
+    "prefix": "GetQBPlayers",
+    "body": [
+      "local Players = QBCore.Functions.GetQBPlayers()",
+      ""
+    ],
+    "description": "SERVER/Return all the DATA from all players this is not the same as GetPlayers, that only return the source"
+  },
+  "SERVER/Return an array players and the amount of players on duty for the selected job": {
+    "prefix": "GetPlayersOnDuty",
+    "body": [
+      "local players,count= QBCore.Functions.GetPlayersOnDuty(${1:job})",
+      ""
+    ],
+    "description": "SERVER/Return an array players and the amount of players on duty for the selected job"
+  },
+  "SERVER/Returns only the amount of players on duty for the specified job": {
+    "prefix": "GetDutyCount",
+    "body": [
+      "local count= QBCore.Functions.GetDutyCount(${1:job})",
+      ""
+    ],
+    "description": "SERVER/Returns only the amount of players on duty for the specified job"
+  },
+  "SERVER/Returns the objects related to buckets, first returned value is the player buckets, second one is entity buckets": {
+    "prefix": "GetBucketObjects",
+    "body": [
+      "local count= QBCore.Functions.GetBucketObjects()",
+      ""
+    ],
+    "description": "SERVER/Returns the objects related to buckets, first returned value is the player buckets, second one is entity buckets"
+  },
+  "SERVER/Will set the provided player id / source into the provided bucket id, return true if success or false": {
+    "prefix": "GetBucketObjects",
+    "body": [
+      "local count= QBCore.Functions.SetPlayerBucket(${1:source},${2:buket})",
+      ""
+    ],
+    "description": "SERVER/Will set the provided player id / source into the provided bucket id, return true if success or false"
+  },
+  "SERVER/Will set any entity into the provided bucket, for example peds / vehicles / props / etc.": {
+    "prefix": "SetEntityBucket",
+    "body": [
+      "local count= QBCore.Functions.SetEntityBucket(${1:entity},${2:buket})",
+      ""
+    ],
+    "description": "SERVER/Will set any entity into the provided bucket, for example peds / vehicles / props / etc."
+  },
+  "SERVER/Will return an array of all the player ids inside the current bucket or false": {
+    "prefix": "GetPlayersInBucket",
+    "body": [
+      "local Current = QBCore.Functions.GetPlayersInBucket(${1:bucket})",
+      ""
+    ],
+    "description": "SERVER/Will return an array of all the player ids inside the current bucket or false"
+  },
+  "SERVER/Create a callback and return a value": {
+    "prefix": "CreateCallback",
+    "body": [
+      "QBCore.Functions.CreateCallback(${1:name},function(source,cb,${2:args}) ",
+      "",
+      "end)",
+      ""
+    ],
+    "description": "SERVER/Create a callback and return a value"
+  },
+  "SERVER/Create a item": {
+    "prefix": "CreateUseableItem",
+    "body": [
+      "QBCore.Functions.CreateUseableItem(${1:item},cb)",
+      ""
+    ],
+    "description": "SERVER/Create a item"
+  },
+  "SERVER/Kick a player from the server": {
+    "prefix": "Kick",
+    "body": [
+      "QBCore.Functions.Kick(${1:source},${2:reason},${3:setKickReason},${4:deferrals})",
+      ""
+    ],
+    "description": "SERVER/Kick a player from the server"
+  },
+  "SERVER/Add Permission for a player, always create the permission on the server.cfg": {
+    "prefix": "AddPermission",
+    "body": [
+      "QBCore.Functions.AddPermission(${1:source},${2:permission})"
+    ],
+    "description": "SERVER/Add Permission for a player, always create the permission on the server.cfg"
+  },
+  "SERVER/Inserts a new entry into the database and returns the insert id for the row, if valid.": {
+    "prefix": "MySQL.insert",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/insert ",
+      "MySQL.insert(${1:query},{${2:args}},function(cb) ",
+      "",
+      "end)"
+    ],
+    "description": "SERVER/Inserts a new entry into the database and returns the insert id for the row, if valid."
+  },
+  "SERVER/Inserts a new entry into the database and returns the insert id for the row, if valid. and wait for a promise": {
+    "prefix": "MySQL.insert.await",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/insert ",
+      " local ${1:variable} = MySQL.insert.await(${2:query}, {${3:args}})"
+    ],
+    "description": "SERVER/Inserts a new entry into the database and returns the insert id for the row, if valid. and wait for a promise"
+  },
+  "SERVER/Prepare can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query.": {
+    "prefix": "MySQL.prepare",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/prepare ",
+      "MySQL.prepare(${1:query}, {{${2:args}}}, function(result)",
+      "  ",
+      "end)"
+    ],
+    "description": "SERVER/Prepare can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query."
+  },
+  "SERVER/Prepare can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query.This is the promise version": {
+    "prefix": "MySQL.prepare.await",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/prepare ",
+      "local ${1:variable} = MySQL.prepare.await(${2:query},{${3:args}})"
+    ],
+    "description": "SERVER/Prepare can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query."
+  },
+  "SERVER/Generic function that can be utilised for any query.": {
+    "prefix": "MySQL.query",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/query",
+      "MySQL.query(${1:query}, {{${2:args}}}, function(result)",
+      "",
+      "end)"
+    ],
+    "description": "SERVER/Generic function that can be utilised for any query."
+  },
+  "SERVER/Generic function that can be utilised for any query. Promise": {
+    "prefix": "MySQL.query.await",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/query",
+      "local ${1:variable} = MySQL.query.await(${1:query}, {{${2:args}})"
+    ],
+    "description": "SERVER/Generic function that can be utilised for any query. Promise"
+  },
+  "SERVER/Returns the first column for a single row.": {
+    "prefix": "MySQL.scalar",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/scalar",
+      "MySQL.scalar(${1:query}, {${2:args}}, function(return)",
+      "",
+      "end)"
+    ],
+    "description": "SERVER/Returns the first column for a single row."
+  },
+  "SERVER/Returns the first column for a single row.Promise": {
+    "prefix": "MySQL.scalar.await",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/scalar",
+      "local ${1:variable} = MySQL.scalar.await(${2:query}, {${3:args}})"
+    ],
+    "description": "SERVER/Returns the first column for a single row.Promise"
+  },
+  "SERVER/Returns the columns for a single row.": {
+    "prefix": "MySQL.single",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/single",
+      "MySQL.single(${1:query}, {${2:args}}, function(result)",
+      "",
+      "end)"
+    ],
+    "description": "SERVER/Returns the columns for a single row."
+  },
+  "SERVER/Returns the columns for a single row. Promise": {
+    "prefix": "MySQL.single.await",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/single",
+      "local ${1:variable} = MySQL.single.await(${2:query}, {${3:args}})"
+    ],
+    "description": "SERVER/Returns the columns for a single row. Promise"
+  },
+  "SERVER/A transaction executes multiple queries and commits them only if all succeed. If one fails, none of the queries are committed. The return value is a boolean, which is the result of the transaction.": {
+    "prefix": "MySQL.transaction",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/transaction",
+      "local ${1:queries} = {",
+      "  {query = \"\",values = {} }",
+      "}",
+      "MySQL.transaction(${1:queries}, function(result)",
+      "end)"
+    ],
+    "description": "SERVER/A transaction executes multiple queries and commits them only if all succeed. If one fails, none of the queries are committed. The return value is a boolean, which is the result of the transaction."
+  },
+  "SERVER/A transaction executes multiple queries and commits them only if all succeed. If one fails, none of the queries are committed. The return value is a boolean, which is the result of the transaction.Promise": {
+    "prefix": "MySQL.transaction.await",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/transaction",
+      "local ${1:queries} = {",
+      "  {query = \"\",values = {} }",
+      "}",
+      "local result = MySQL.transaction.await(${1:queries})"
+    ],
+    "description": "SERVER/A transaction executes multiple queries and commits them only if all succeed. If one fails, none of the queries are committed. The return value is a boolean, which is the result of the transaction.Promise"
+  },
+  "SERVER/Returns the number of affected rows by the query.": {
+    "prefix": "MySQL.update",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/update",
+      "MySQL.update(${1:query}, {${2:args}}, function(affectedRows)",
+      "",
+      "end)"
+    ],
+    "description": "SERVER/Returns the number of affected rows by the query."
+  },
+  "SERVER/Returns the number of affected rows by the query.Promise": {
+    "prefix": "MySQL.update.await",
+    "body": [
+      "--https://overextended.github.io/docs/oxmysql/Usage/transaction",
+      "local Promise = MySQL.update.await(${1:query}, {${2:args}})"
+    ],
+    "description": "SERVER/Returns the number of affected rows by the query.Promise"
+  },
+  "CLIENT/SERVER Create a Thread": {
+    "prefix": "CT",
+    "body": [
+      "CreateThread(function() ",
+      "",
+      "end)"
+    ],
+    "description": "CLIENT/SERVER Create a Thread"
+  },
+  "CLIENT/ Register a Key event, Command: is the name of the command, Definition: is the description, Type: This can be, mouse, keyboard, and the Button: is the key to press to fire the event": {
+    "prefix": "KeyMapping",
+    "body": [
+      "--https://cookbook.fivem.net/2020/01/06/using-the-new-console-key-bindings/",
+      "RegisterCommand('+${1:command}', function()",
+      "",
+      "end, false)",
+      "RegisterCommand('-${1:command}', function()",
+      "",
+      "end, false)",
+      "RegisterKeyMapping('+${1:command}', '${2:definition}', '${3:type}', '${4:button}')"
+    ],
+    "description": "CLIENT/ Register a Key event, Command: is the name of the command, Definition: is the description, Type: This can be, mouse, keyboard, and the Button: is the key to press to fire the event"
+  },
+  "CLIENT/ Print in the console a message": {
+    "prefix": "log",
+    "body": [
+      "function log(text)",
+      "	print(json.encode(text, { pretty = true, indent = \"  \", align_keys = true }))",
+      "end"
+    ],
+    "description": "CLIENT/ Print in the console a message"
+  },
+  "CLIENT/ Function to create a blip, pass the coordinates and a text": {
+    "prefix": "Blip",
+    "body": [
+      "function addBlip(coords, text)",
+      "	local blip = AddBlipForCoord(coords.x, coords.y, coords.z)",
+      "	SetBlipSprite(blip, 535)",
+      "	SetBlipColour(blip, 1)",
+      "	SetBlipDisplay(blip, 4)",
+      "	SetBlipAlpha(blip, 250)",
+      "	SetBlipScale(blip, 0.8)",
+      "	SetBlipAsShortRange(blip, false)",
+      "	PulseBlip(blip)",
+      "	BeginTextCommandSetBlipName(\"STRING\")",
+      "	AddTextComponentString(text)",
+      "	EndTextCommandSetBlipName(blip)",
+      "	return blip",
+      "end"
+    ],
+    "description": "CLIENT/ Function to create a blip, pass the coordinates and a text"
+  },
+  "CLIENT/ Register an Event": {
+    "prefix": "NetEvent",
+    "body": [
+      "RegisterNetEvent(${1:name},function(args) ",
+      "",
+      "end)"
+    ],
+    "description": "CLIENT/ Register an Event"
+  },
+  "SERVER/ Register an Event on the server": {
+    "prefix": "ServerEvent",
+    "body": [
+      "RegisterServerEvent(${1:name},function(args) ",
+      "",
+      "end)"
+    ],
+    "description": "SERVER/ Register an Event on the server"
+  },
+  "CLIENT: OnPlayerLoaded": {
+    "prefix": "OnPlayerLoaded",
+    "body": [
+      "RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()",
+      "",
+      "end)",
+      ""
+    ],
+    "description": "OnPlayerLoaded"
+  },
+  "CLIENT: OnJobUpdate": {
+    "prefix": "OnJobUpdate",
+    "body": [
+      "RegisterNetEvent('QBCore:Client:OnJobUpdate', function(job),",
+      "",
+      "end)"
+    ],
+    "description": "On Job Update Event"
+  },
+  "SERVER/ Trigger a Notify From the Server to the Client": {
+    "prefix": "Server:Notify",
+    "body": [
+      "TriggerClientEvent(\"QBCore:Notify\",source,\"${1:Message}\")"
+    ],
+    "description": "SERVER: Trigger a Notify From the Server to the Client"
+  },
+  "SERVER/CLIENT Register a command": {
+    "prefix": "Command",
+    "body": [
+      "RegisterCommand(${1:name},function(source,args) ",
+      "",
+      "end)"
+    ],
+    "description": "SERVER/CLIENT Register a command"
+  },
+  "CLIENT/Open QB-Menu": {
+    "prefix": "Menu",
+    "body": [
+      "-- https://github.com/qbcore-framework/qb-menu/blob/main/README.md",
+      "local MenuData = {",
+      "        {",
+      "            header = \"${1:HeaderTitle}\",",
+      "            isMenuHeader = true, ",
+      "        },",
+      "        {",
+      "            header = \"Sub Menu Button\",",
+      "            txt = \"This goes to a sub menu\",",
+      "            params = {",
+      "                event = ",
+      "                args = {",
+      "                    number = 1,",
+      "                }",
+      "            }",
+      "        },",
+      "    }",
+      "exports.qb-menu:openMenu(MenuData)"
+    ],
+    "description": "CLIENT/Open Create a new Menu"
+  }
 }
